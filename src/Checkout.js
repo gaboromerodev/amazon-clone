@@ -18,12 +18,12 @@ function Checkout() {
                     {/* BasketItem*/}
                     {/* BasketItem*/}
                     {/* BasketItem*/}
-                </div>
+                </div> 
             </div> 
 
             <div className="checkout__right">
-                <Subtotal  />
-            </div>  
+                <Subtotal />
+             </div> 
         </div>
     )
 }
