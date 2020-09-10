@@ -15,7 +15,7 @@ function Subtotal() {
                     <p>
                         {/*Part of the homework*/}
                         Subtotal ( {basket.length} items):
-                        <strong>{getBasketTotal(basket)}</strong>
+                        <strong>{value}</strong>
                     </p>
                     <small className="subtotal__gift">
                         <input type="checkbox" />This order contain a gift
