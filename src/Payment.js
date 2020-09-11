@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Payment.css";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
-
+import axios from "./Axios";
 
 function Payment() {
     const [{basket, user}, dispatch] = useStateValue();
+    const history = useHistory();
 
 
     const stripe = useStripe();  // these are hooks
@@ -43,7 +44,19 @@ function Payment() {
         event.preventDefault();
         setProcessing(true);
 
-        // const payload = await stripe 
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement)
+            }
+        }).then(({ paymentIntend }) => {
+            //paymentIntent = payment Confirmation
+            setSucceeded(true)
+            setError(null)
+            setProcessing(false)
+
+            history.replace('/orders')
+        })
+
     }
 
     const handleChange = event => {
