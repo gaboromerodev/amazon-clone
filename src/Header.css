@@ -31,7 +31,7 @@
 
 .header__nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: stretch;
 }
 
 .header__option {
@@ -49,6 +49,7 @@
 .header__optionLineTwo {
   font-size: 13px;
   font-weight: 800;
+  margin-right: 10px;
 }
 
 .header__optionBasket {

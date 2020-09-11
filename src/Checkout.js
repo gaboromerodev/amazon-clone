@@ -27,12 +27,6 @@ const [{basket, user}, dispatch] = useStateValue();
                          rating={item.rating}
                         />
                     ))}
-
-                    {/* CheckoutProduct*/}
-                    {/* CheckoutProduct*/}
-                    {/* CheckoutProduct*/}
-                    {/* CheckoutProduct*/}
-                    {/* CheckoutProduct*/}
                 </div> 
             </div> 
 
