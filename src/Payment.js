@@ -15,8 +15,10 @@ function Payment() {
     const stripe = useStripe();  // these are hooks
     const elements = useElements();
 
-    const [error , setError] = useState(null);
-    const [disable, setDisabled] = useState(true);
+    const [succeeded, setSucceeded] = useState(false);
+    const [processing, setProcessing] = useState("");
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(true);
 
     const handleSubmit = e => {
         // do all the fancy stripe stuff
@@ -92,6 +94,9 @@ function Payment() {
                                     thousandSeparator={true}
                                     prefix={"$"}
                                 />
+                                <button disabled={processing || disabled || succeeded}>
+                                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                                </button>
                             </div>
                         </form>
                     </div>
